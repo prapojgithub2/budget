@@ -1,0 +1,59 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.7.0/libexec/bin/yarn.js add jest
+
+PATH: 
+  /Users/prapoj/.rvm/gems/ruby-2.4.0/bin:/Users/prapoj/.rvm/gems/ruby-2.4.0@global/bin:/Users/prapoj/.rvm/rubies/ruby-2.4.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin:/usr/local/go/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/prapoj/.rvm/bin
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  8.9.4
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/prapoj/Workspace/budget/package.json: Unexpected token { in JSON at position 261
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:109:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "name": "budget",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "./node_modules/.bin/jasmine"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "jasmine": "^3.1.0",
+      "moment": "^2.22.2"
+    },
+    {
+      "spec_dir": "spec",
+      "spec_files": [
+          "appSpec.js",
+          "requests/**/*[sS]pec.js",
+          "utils/**/*[sS]pec.js"
+      ],
+      "helpers": [
+        "helpers/**/*.js"
+      ]
+    }
+  
+    
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
