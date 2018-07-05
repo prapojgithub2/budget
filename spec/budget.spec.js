@@ -3,6 +3,8 @@ var Budget = require('../src/budget');
 // import Budget from '../src/budget';
 
 describe("Query budget", () => {
+
+    
     it("should return 0 when no budget in any month", () => {
         let existingBudgets = [];
         budgetList=  existingBudgets
