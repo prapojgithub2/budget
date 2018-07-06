@@ -26,7 +26,7 @@ exports.queryBudget = function (startDateStr, endDateStr) {
         }
 
     });
-    return totalAmount;
+    return totalAmount > 0 ? totalAmount : 0;
 }
 
 budgetList = [];
