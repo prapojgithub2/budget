@@ -49,4 +49,20 @@ describe("Query budget", () => {
         
         expect(budget).toEqual(5000);
     });
+
+    it("should return 3700 baht when there query budget between 15/06/2018 to 31/07/2018 and there is 3000 baht budget in June and 2000 in July", () => {
+        let existingBudgets = [{
+            "month" : "12/2017",
+            "amount": 3100
+        },
+        {
+            "month" : "01/2018",
+            "amount": 31000
+        }];
+        budgetList=  existingBudgets
+
+        let budget = Budget.queryBudget("15/12/2017", "11/01/2018");
+        
+        expect(budget).toEqual(1700+11000);
+    });
 });

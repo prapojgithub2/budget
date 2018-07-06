@@ -13,19 +13,22 @@ exports.queryBudget = function (startDateStr, endDateStr) {
     
     budgetList.forEach(budget => {
         let thisMonth = moment(budget.month, "MM/YYYY")
-        if (startPeriod <= thisMonth || endPeriod >= thisMonth) {
-            let startOfMonth = moment(budget.month, "MM/YYYY").startOf('month')
-            let endOfMonth = moment(budget.month, "MM/YYYY").endOf('month')
+        if (startPeriod.isSameOrBefore(thisMonth)|| endPeriod.isSameOrAfter(thisMonth)) {
+            let startOfMonth = moment(thisMonth).startOf('month')
+            let endOfMonth = moment(thisMonth).endOf('month')
 
-            let daysInThisMonth = endOfMonth.dayOfYear() - startOfMonth.dayOfYear() + 1
+            let daysInThisMonth = startOfMonth.daysInMonth()
 
-            let actualBeginDate = (startDate > startOfMonth) ? startDate : startOfMonth;
-            let actualEndDate = (endDate < endOfMonth) ? endDate : endOfMonth;
-
+            let actualBeginDate = startDate.isAfter(startOfMonth) ? startDate : startOfMonth;
+            let actualEndDate = endDate.isBefore(endOfMonth) ? endDate : endOfMonth;
+           
             totalAmount += budget.amount * ((actualEndDate.dayOfYear() - actualBeginDate.dayOfYear()) + 1) / daysInThisMonth
         }
 
     });
+
+ 
+
     return totalAmount > 0 ? totalAmount : 0;
 }
 
