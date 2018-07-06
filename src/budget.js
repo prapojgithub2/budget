@@ -22,7 +22,7 @@ exports.queryBudget = function (startDateStr, endDateStr) {
             let actualBeginDate = startDate.isAfter(startOfMonth) ? startDate : startOfMonth;
             let actualEndDate = endDate.isBefore(endOfMonth) ? endDate : endOfMonth;
            
-            totalAmount += budget.amount * ((actualEndDate.dayOfYear() - actualBeginDate.dayOfYear()) + 1) / daysInThisMonth
+            totalAmount += budget.amount * ( actualEndDate.diff(actualBeginDate,'days') + 1) / daysInThisMonth
         }
 
     });
