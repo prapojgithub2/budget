@@ -5,8 +5,8 @@ exports.queryBudget = function (startDateStr, endDateStr) {
     let startDate = moment(startDateStr, "DD/MM/YYYY");
     let endDate = moment(endDateStr, "DD/MM/YYYY");
 
-    let startPeriod = moment(startDate, "DD/MM/YYYY").startOf('month')
-    let endPeriod = moment(endDate, "DD/MM/YYYY").endOf('month')
+    let startPeriod = moment(startDate).startOf('month')
+    let endPeriod = moment(endDate).endOf('month')
 
     let totalAmount = 0
     
@@ -26,9 +26,6 @@ exports.queryBudget = function (startDateStr, endDateStr) {
         }
 
     });
-
- 
-
     return totalAmount > 0 ? totalAmount : 0;
 }
 
